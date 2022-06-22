@@ -1,0 +1,27 @@
+{% extends "login_register_base.html" %}
+
+
+{% block title %}
+    Регистрация
+{% endblock %}
+
+
+{% block head %}
+{% endblock %}
+
+
+{% block content %}
+<div>
+    <div class="register">
+        <h1>Регистрация</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <table>
+                {{user_form.as_table}}
+            </table>
+            <button class="submit" type="submit">Зарегистрироваться</button>
+        </form>
+        <p class="login"><a href="/login">Войдите</a>, если вы уже зарегистрированы</p>
+    <div class="register">
+</div>
+{% endblock %}

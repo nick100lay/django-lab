@@ -1,0 +1,27 @@
+{% extends "news/base.html" %}
+
+
+{% block title %}
+    Редактирование новости
+{% endblock %}
+
+
+{% block head %}
+{% endblock %}
+
+
+{% block content %}
+<div>
+    <div class="edit-article">
+        <h1>Редактирование новости</h1>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <table>
+                {{edit_form.as_table}}
+            </table>
+            <button class="submit" type="submit">Редактировать</button>
+        </form>
+        <p class="cancel"><a href="{{cancel_url}}">Отменить</a></p>
+    <div class="register">
+</div>
+{% endblock %}

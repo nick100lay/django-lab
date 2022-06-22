@@ -1,0 +1,16 @@
+<div class="news-article-preview" onclick="location.href = '{{article.url}}'">
+    <p class="title">{{article.title}}</p>
+    <img class="image" width="480" height="360" src="{{article.image}}">
+    <p class="author">Автор:
+        <span class="first-name">{{article.owner.0}}</span>
+        <span class="last-name">{{article.owner.1}}</span>
+    </p>
+    <p class="published-date">Дата публикации:
+        <span class="date"> {{article.published_date}}</span>
+    </p>
+    <p class="blog">Блог:
+        {% for blog in article.blog %}
+        <a class="blog-name" href="{{blog.1}}">{{blog.0}}</a>
+        {% endfor %}
+    </p>
+</div>

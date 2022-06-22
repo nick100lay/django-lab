@@ -1,0 +1,26 @@
+{% extends "news/base.html" %}
+
+
+{% block title %}
+    Новости
+{% endblock %}
+
+
+{% block head %}
+{% endblock %}
+
+
+{% block content %}
+    <div class="latest-news-container">
+        <div class="header">
+            <header class="header">
+                <h1>{{Новости}}</h1>
+            </header>
+        </div>
+        <div class="list">
+            {% for article in articles %}
+                {% include "news/article_preview.html" with article=article %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "news/base.html" %}
+
+
+{% block title %}
+    Блог {{blog.0}}
+{% endblock %}
+
+
+{% block head %}
+{% endblock %}
+
+
+{% block content %}
+    <div class="blog-container">
+        <div class="header">
+            <header class="header">
+                <h1>Блог {{blog.0}}</h1>
+            </header>
+        </div>
+        <div class="articles-container">
+            {% for article in articles %}
+                <div class="article" onclick="location.href = '{{article.url}}'">
+                    {% include "news/article.html" with article=article %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

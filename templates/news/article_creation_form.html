@@ -1,0 +1,27 @@
+{% extends "news/base.html" %}
+
+
+{% block title %}
+    Создание новости
+{% endblock %}
+
+
+{% block head %}
+{% endblock %}
+
+
+{% block content %}
+<div>
+    <div class="create-article">
+        <h1>Создание новости</h1>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <table>
+                {{creation_form.as_table}}
+            </table>
+            <button class="submit" type="submit">Создать</button>
+        </form>
+        <p class="cancel"><a href="/">Отменить</a></p>
+    <div class="register">
+</div>
+{% endblock %}

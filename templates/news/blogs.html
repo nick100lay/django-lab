@@ -1,0 +1,26 @@
+{% extends "news/base.html" %}
+
+
+{% block title %}
+    Новости
+{% endblock %}
+
+
+{% block head %}
+{% endblock %}
+
+
+{% block content %}
+    <div class="blogs-container">
+        <div class="header">
+            <header class="header">
+                <h1>Блоги</h1>
+            </header>
+        </div>
+        <div class="list">
+            {% for blog in blogs %}
+                <a href="{{blog.1}}">{{blog.0}}</a>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

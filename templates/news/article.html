@@ -1,0 +1,28 @@
+<div class="article-container">
+    <div class="article-header-container">
+        <header class="header">
+            <h1>{{article.title}}</h1>
+        </header>
+        <img class="image" width="850" height="480" src="{{article.image}}">
+        <p class="author">Автор:
+            <span class="first-name">{{article.owner.0}}</span>
+            <span class="last-name">{{article.owner.1}}</span>
+        </p>
+        <p class="published-date">Дата публикации:
+            <span class="date"> {{article.published_date}}</span>
+        </p>
+        <p class="blog">Блог:
+            {% for blog in article.blog %}
+                <a class="blog-name" href="{{blog.1}}">
+                    {{blog.0}}
+                </a>
+            {% endfor %}
+        </p>
+    </div>
+    <div class="article-text-container">
+        <p>{{article.text}}</p>
+    </div>
+    {% if user.pk == article.owner_id and not in_blog_articles_list %}
+        <a class="edit" href="{{article.edit_url}}">Редактировать новость</a>
+    {% endif %}
+</div>

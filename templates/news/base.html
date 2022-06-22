@@ -1,0 +1,37 @@
+{% load static %}
+
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="/css/news.css">
+        {% block head %}{% endblock %}
+    </head>
+    <body>
+        <div class="news-header-container">
+            <nav class="nav-menu">
+                <header class="news-header">
+                    <a href="/">Новости</a>
+                </header>
+                <a href="/blogs">Блоги</a>
+                {% if not user.is_authenticated %}
+                    <a href="/login">Войти</a>
+                    <a href="/register">Зарегистрироваться</a>
+                {% else %}
+                    <p>
+                        Вы вошли
+                        <span class="user">{{user.first_name}} {{user.last_name}}</span>
+                        <a href="/logout">Выйти</a>
+                    </p>
+                    {% if user.is_superuser and not is_creating_article %}
+                        <a href="/create_article">Создать новость</a>
+                    {% endif %}
+                {% endif %}
+            </nav>
+        </div>
+        <div class="content-container">
+            {% block content %}${% endblock %}
+        </div>
+    </body>
+</html>

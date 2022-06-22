@@ -1,0 +1,19 @@
+{% load static %}
+
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="/css/login_register.css">
+        {% block head %}{% endblock %}
+    </head>
+    <body>
+        <nav class="nav-menu">
+            <header class="news-header">
+                <a href="/">Новости</a>
+            </header>
+        </nav>
+        {% block content %}${% endblock %}
+    </body>
+</html>
